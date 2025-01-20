@@ -15,12 +15,12 @@ body {
 /* Navigation Bar */
 nav {
     background-color: #D86D3F;
-    padding: 10px 0;
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -43,26 +43,23 @@ nav {
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
 }
-.story-img { display: block;
-    width: 50px;
-    height: 50px;
 
 
-}
+
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    padding: 0.4rem 1rem; 
+    padding: 0.4rem 0.8rem; 
     border-radius: 20px; 
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2); 
@@ -114,20 +111,22 @@ nav {
 
 .cta-button {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 8px;
     background-color: #D86D3F;
     color: white;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 8px;
     font-weight: bold;
-    border-radius: 5px;
-    border: none;
+    border-radius: 15px;
+    border: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .cta-button:hover {
     background-color: #b5552a;
+    
     
 }
 
@@ -150,7 +149,22 @@ nav {
         max-width: 100%;
     }
 
-    .nav-links {
-        gap: 1rem;
-    }
+
+.logo {
+    font-size: 1.2rem;
+}
+.nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.nav-links {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.nav-links a {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+
+}
 }
