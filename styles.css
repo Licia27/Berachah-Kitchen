@@ -7,15 +7,15 @@
 
 body {
     background-color: #ffffff;
-    padding-top: 60px; /* Prevents nav overlap */
+    padding-top: 50px; /* Adjusted to match the navbar height */
     color: #333; /* Default text color */
     line-height: 1.6;
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #D86D3F;
-    padding: 10px 20px;
+    background-color: #3d9b9a;
+    padding: 5px 15px; /* Reduced padding */
     position: fixed;
     width: 100%;
     top: 0;
@@ -29,7 +29,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 0.5rem; /* Reduced padding */
 }
 
 .logo {
@@ -38,7 +38,7 @@ nav {
     gap: 1rem;
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Slightly reduced font size */
     font-weight: bold;
 }
 
@@ -49,95 +49,106 @@ nav {
     object-fit: cover;
 }
 
-
-
 .nav-links {
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem; /* Reduced gap */
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    padding: 0.4rem 0.8rem; 
+    padding: 4px; /* Reduced padding */
     border-radius: 20px; 
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2); 
     transition: all 0.3s ease;
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 7px; /* Reduced font size */
-    letter-spacing: 0.3px; /* Slightly reduced spacing */
+    font-size: 6px; /* Further reduced font size */
+    letter-spacing: 0.2px; /* Slightly reduced spacing */
     position: relative;
     overflow: hidden;
 }
 
 .nav-links a:hover {
-    transform: translateY(-1px); /* Slightly less pronounced hover effect */
+    transform: translateY(-1px);
     border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links a:active {
     transform: translateY(0);
 }
+
+
+
+
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 80vh; /* Reduced height for a more compact look */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6rem 2rem 2rem;
-    gap: 2rem;
+    padding: 4rem 2rem; /* Adjusted padding */
+    gap: 1.5rem; /* Reduced gap */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .hero-content {
-    max-width: 50%;
+    max-width: 50%; /* You can adjust this to suit your design */
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem; /* Reduced font size */
+    margin-bottom: 0.5rem; /* Adjusted margin */
     color: #333;
 }
 
 .hero p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem; /* Reduced font size */
+    margin-bottom: 1rem; /* Adjusted margin */
     color: #555;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 8px;
-    background-color: #D86D3F;
+    padding: 10px 16px; /* Increased padding for better button size */
+    background-color: #3d9b9a;
     color: white;
     text-transform: uppercase;
-    font-size: 8px;
+    font-size: 10px; /* Slightly increased for better visibility */
     font-weight: bold;
     border-radius: 15px;
-    border: 10px;
+    border: none; /* Removed border */
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
 }
 
 .cta-button:hover {
-    background-color: #b5552a;
-    
-    
+    background-color: #3d9b9a;
 }
 
 /* Hero Image */
 .hero-image img {
-    max-width: 100%;
+    max-width: 100%; /* Ensures that the image is responsive */
     border-radius: 10px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer */
+footer {
+    background-color: #3d9b9a;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
@@ -149,22 +160,11 @@ nav {
         max-width: 100%;
     }
 
+    .logo {
+        font-size: 1.2rem;
+    }
 
-.logo {
-    font-size: 1.2rem;
-}
-.nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-.nav-links {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-.nav-links a {
-    padding: 0.6rem;
-    font-size: 0.8rem;
-
-}
+    .nav-container {
+        flex
+    }
 }

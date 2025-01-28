@@ -13,7 +13,7 @@ body, h1, h2, p, ul, li, nav {
   }
   
   header {
-    background-color: #a0522d;
+    background-color: #3d9b9a;
     padding: 15px 0;
   }
   
@@ -36,7 +36,7 @@ body, h1, h2, p, ul, li, nav {
   
   .nav-links a:hover,
   .nav-links a.active {
-    background-color: #8b4513;
+    background-color: #3d9b9a;
   }
   
   main {
@@ -63,8 +63,8 @@ body, h1, h2, p, ul, li, nav {
   
   .menu-category h2 {
     margin-bottom: 10px;
-    color: #a0522d;
-    border-bottom: 2px solid #a0522d;
+    color: #3d9b9a;
+    border-bottom: 2px solid #3d9b9a;
     display: inline-block;
     padding-bottom: 5px;
   }
@@ -81,7 +81,7 @@ body, h1, h2, p, ul, li, nav {
   }
   
   .price {
-    color: #a0522d;
+    color: #3d9b9a;
     font-weight: bold;
   }
   

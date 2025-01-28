@@ -42,7 +42,7 @@
 
 .special-description h2 {
     font-size: 1.8rem;
-    color: #D86D3F;
+    color: #3d9b9a;
     margin-bottom: 1rem;
 }
 
@@ -59,7 +59,7 @@
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    background-color: #D86D3F;
+    background-color: #3d9b9a;
     border: none;
     border-radius: 25px;
     text-decoration: none;
@@ -67,7 +67,7 @@
 }
 
 .cta-button:hover {
-    background-color: #b7542d;
+    background-color: #3d9b9a;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -93,7 +93,7 @@
 }
 
 footer {
-    background-color: #D86D3F;
+    background-color: #3d9b9a;
     color: white;
     text-align: center;
     padding: 1rem 0;
