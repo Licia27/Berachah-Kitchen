@@ -152,6 +152,12 @@ body {
     border-radius: 8px;
     text-align: center;
 }
+/* Footer */
+footer {
+    background-color: #3d9b9a;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
 
 /* Responsive Design */
 @media (max-width: 768px) {
