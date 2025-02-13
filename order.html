@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Now - Berachah Kitchen</title>
-  <link rel="stylesheet" href="order.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="order.css">
 </head>
 <body>
   <header>
@@ -21,82 +21,117 @@
           <a href="menu.html">Menu</a>
           <a href="specials.html">Specials</a>
           <a href="order.html" class="active">Order Online</a>
-          <a href="contacts.html">Contacts</a>
+          <a href="contact.html">Contacts</a>
         </div>
       </div>
     </nav>
+
   </header>
 
-  <main>
-    <section class="order-section">
-      <h1>Order Now</h1>
-      <p>Fill out the form below to place your order. We'll confirm your order as soon as possible.</p>
+  <div class="container">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
 
-      <form action="submit-order.php" method="post" class="order-form">
-        <!-- Customer Details -->
-        <fieldset>
-          <legend>Customer Details</legend>
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" placeholder="Enter your contact number" required>
 
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      <label for="order">Select Your Order</label>
+      <select id="order" required>
+        <option value="" disabled selected>Select an item</option>
+        <option value="PHD Kota">PHD Kota - E99.99</option>
+        <option value="Professor Kota">Professor Kota - E129.99</option>
+        <option value="Crocodile Burger">Crocodile Burger - E74.99</option>
+        <option value="Pension Fund Kota">Pension Fund Kota - E279.99</option>
+        <option value="Experienced Doctor Kota">Experienced Doctor Kota - E199.99</option>
+      </select>
 
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </fieldset>
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" rows="4" placeholder="Any special requests..."></textarea>
 
-        <!-- Order Details -->
-        <fieldset>
-          <legend>Order Details</legend>
-          <label for="items">Choose Item</label>
-          <select id="items" name="items" required>
-            <option value="" disabled selected>Select an item</option>
-            <option value="bck">Bridging Course Kota (BCK) - E25</option>
-            <option value="hck">Higher Certificate Kota (HCK) - E30</option>
-            <option value="bk">BCom Kota (BK) - E59.99</option>
-            <option value="edk">Experienced Doctor Kota (EDK) - E199.99</option>
-            <option value="pension">Pension Fund Kota - E279.99</option>
-          </select>
+      <button type="submit">Submit Order</button>
+    </form>
 
-          <label for="quantity">Quantity</label>
-          <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+    <div id="orderSummary" class="order-summary" style="display: none;">
+      <h2>Order Summary</h2>
+      <p><strong>Name:</strong> <span id="summaryName"></span></p>
+      <p><strong>Contact:</strong> <span id="summaryContact"></span></p>
+      <p><strong>Order:</strong> <span id="summaryOrder"></span></p>
+      <p><strong>Notes:</strong> <span id="summaryNotes"></span></p>
+      <p><strong>Order ID:</strong> <span id="summaryOrderId"></span></p>
+    </div>
 
-          <label for="notes">Additional Notes</label>
-          <textarea id="notes" name="notes" placeholder="E.g., Extra cheese, no onions, etc."></textarea>
-        </fieldset>
+    <h2>Track Your Order</h2>
+    <form id="trackOrderForm">
+      <label for="orderId">Enter Your Order ID</label>
+      <input type="text" id="orderId" placeholder="Enter your order ID" required>
+      <button type="submit">Track Order</button>
+    </form>
 
-        <!-- Submit -->
-        <button type="submit" class="submit-btn">Place Order</button>
-      </form>
-    </section>
-  </main>
-
+    <div id="trackingResult" class="tracking-result" style="display: none;">
+      <h2>Order Status</h2>
+      <p><strong>Status:</strong> <span id="orderStatus"></span></p>
+    </div>
+  </div>
   <footer>
-    <p>&copy; 2025 Berachah Kitchen. All Rights Reserved.</p>
-  </footer>
+    <div class="footer-container">
+        <p>© 2025 Berachah Kitchen. All Rights Reserved.</p>
+    </div>
+</footer>
+
+  <script src="script.js"></script>
   <script>
-    // Handle form submission
-document.getElementById("orderForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    // Simulated database using localStorage
+    const orders = JSON.parse(localStorage.getItem('orders')) || {};
 
-  // Capture form values
-  const name = document.getElementById("name").value;
-  const contact = document.getElementById("contact").value;
-  const order = document.getElementById("order").value;
-  const notes = document.getElementById("notes").value;
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-  // Display the order summary
-  document.getElementById("summaryName").textContent = name;
-  document.getElementById("summaryContact").textContent = contact;
-  document.getElementById("summaryOrder").textContent = order;
-  document.getElementById("summaryNotes").textContent = notes || "None";
+      const name = document.getElementById('name').value;
+      const contact = document.getElementById('contact').value;
+      const order = document.getElementById('order').value;
+      const notes = document.getElementById('notes').value;
 
-  document.getElementById("orderSummary").style.display = "block";
+      // Generate a unique order ID
+      const orderId = 'ORD' + Date.now();
 
-  // Reset the form
-  document.getElementById("orderForm").reset();
-});
+      // Store the order details
+      orders[orderId] = {
+        name,
+        contact,
+        order,
+        notes,
+        status: 'Processing' // Initial status
+      };
+
+      // Save to localStorage
+      localStorage.setItem('orders', JSON.stringify(orders));
+
+      // Display order summary
+      document.getElementById('summaryName').textContent = name;
+      document.getElementById('summaryContact').textContent = contact;
+      document.getElementById('summaryOrder').textContent = order;
+      document.getElementById('summaryNotes').textContent = notes;
+      document.getElementById('summaryOrderId').textContent = orderId;
+      document.getElementById('orderSummary').style.display = 'block';
+
+      // Clear the form
+      document.getElementById('orderForm').reset();
+    });
+
+    document.getElementById('trackOrderForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const orderId = document.getElementById('orderId').value;
+
+      if (orders[orderId]) {
+        document.getElementById('orderStatus').textContent = orders[orderId].status;
+        document.getElementById('trackingResult').style.display = 'block';
+      } else {
+        alert('Order ID not found. Please check your order ID and try again.');
+      }
+    });
   </script>
 </body>
 </html>
